@@ -9,6 +9,8 @@
     packages = with pkgs; [ ];
   };
 
+  home-manager.useGlobalPkgs = true;
+
   home-manager.users.robinb = {
     home.stateVersion = "23.05";
 
