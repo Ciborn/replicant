@@ -12,7 +12,9 @@
     ./system/packages.nix
     ./users/robinb
   ];
+
   networking.hostName = "hana"; # Define your hostname.
+  networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -37,24 +39,24 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager = {
-    gdm = {
-      debug = true;
-      enable = true;
-      wayland = false;
-    };
-  };
-  services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
+    desktopManager.gnome.enable = true;
+    displayManager = {
+      defaultSession = "none+awesome";
+      gdm = {
+        debug = true;
+        enable = true;
+        wayland = false;
+      };
+    };
     layout = "fr";
-    videoDrivers = [ "nvidia" ];
     xkbVariant = "";
+    videoDrivers = [ "nvidia" ];
+    windowManager.awesome = {
+      enable = true;
+    };
   };
 
   # Configure console keymap
@@ -111,15 +113,14 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "22.11";
 
   home-manager.useGlobalPkgs = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
+
+  services.autorandr = import ./services/autorandr.nix;
 }

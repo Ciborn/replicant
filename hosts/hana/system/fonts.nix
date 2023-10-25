@@ -16,7 +16,6 @@
       libertine
       mononoki
       nerdfonts
-      open-dyslexic
       overpass
       oxygenfonts
       powerline-fonts

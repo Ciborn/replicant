@@ -14,6 +14,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    awesome
     beautifuldiscord
     btop
     discord
@@ -29,15 +30,17 @@ in
     neofetch
     nwg-drawer
     os-prober
+    playerctl
     polybar
+    pw-volume
     python3
+    rofi
     spotify
     stress
     sysbench
     s-tui
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     vscode
-    wayland
     wget
   ];
 }
