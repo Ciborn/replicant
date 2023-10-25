@@ -9,7 +9,11 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
       hana = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts/hana ];
+        modules = [ ./hosts/shared ./hosts/hana ];
+        specialArgs = inputs;
+      };
+      yeoreum = nixpkgs.lib.nixosSystem {
+        modules = [ ./hosts/shared ./hosts/yeoreum ];
         specialArgs = inputs;
       };
     };

@@ -34,7 +34,7 @@
       separator = "|";
       separator-foreground = "\${colors.disabled}";
 
-      font = [ "Comic Mono:size=10;4" "Comic Neue:size=11:weight=bold;1"  ];
+      font = [ "Comic Mono:size=10;4" "Comic Neue:size=11:weight=bold;3"  ];
 
       modules-left = "xworkspaces spotify";
       modules-center = "date";
