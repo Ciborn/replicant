@@ -11,7 +11,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    awesome
     beautifuldiscord
     btop
     discord
@@ -22,13 +21,13 @@ in
     gnome.gnome-tweaks
     home-manager
     htop
+    intel-gpu-tools
     kitty
     nano
     neofetch
     nwg-drawer
-    os-prober
+    pciutils
     playerctl
-    polybar
     pw-volume
     python3
     rofi
@@ -36,6 +35,7 @@ in
     stress
     sysbench
     s-tui
+    usbutils
     vim
     vscode
     wget

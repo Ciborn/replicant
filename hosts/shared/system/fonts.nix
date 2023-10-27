@@ -2,8 +2,8 @@
 
 {
   fonts = {
-    enableDefaultFonts = true;
-    fonts = with pkgs; [
+    enableDefaultPackages = true;
+    packages = with pkgs; [
       #font-awesome_4
       comic-mono
       corefonts # Microsoft free fonts

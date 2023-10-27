@@ -7,8 +7,8 @@
 {
   imports = [
     ./system/boot.nix
-    ./system/fonts.nix
     ./system/hardware.nix
+    ./users/robinb
   ];
 
   networking.hostName = "hana"; # Define your hostname.

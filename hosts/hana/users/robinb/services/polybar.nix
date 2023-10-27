@@ -38,7 +38,7 @@
 
       modules-left = "xworkspaces spotify";
       modules-center = "date";
-      modules-right = "filesystem pulseaudio xkeyboard memory cpu wlan eth";
+      modules-right = "filesystem pulseaudio xkeyboard memory cpu wlan eth battery";
 
       cursor-click = "pointer";
       cursor-scroll = "ns-resize";
@@ -156,6 +156,11 @@
       label-font = 2;
 
       exec = "~/.config/polybar/spotify/bin/get_spotify_status.sh";
+    };
+    "module/battery" = {
+      type = "internal/battery";
+      adapter = "ACAD";
+      battery = "BAT1";
     };
   };
 }

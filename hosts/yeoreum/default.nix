@@ -2,17 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./system/hardware.nix
+      ./system/packages.nix
+      ./users/robinb
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "yeoreum"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -42,20 +40,29 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    displayManager = {
-      defaultSession = "none+awesome";
-      gdm.enable = true;
-    };
-    enable = true;
-    layout = "fr";
-    windowManager.awesome.enable = true;
-    xkbVariant = "";
-  };
+  programs.hyprland.enable = true;
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Configure console keymap
   console.keyMap = "fr";
+
+  # Enable sound with pipewire.
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -84,4 +91,14 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
+  boot.loader.grub.gfxmodeEfi = "1920x1200";
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 }
