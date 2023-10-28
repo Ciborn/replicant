@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   home-manager.users.robinb = {
@@ -11,5 +11,5 @@
     programs.rofi = import ./programs/rofi.nix;
 
     services.polybar = import ./services/polybar.nix;
-  }
+  };
 }

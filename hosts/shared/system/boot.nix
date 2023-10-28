@@ -2,7 +2,8 @@
 
 {
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
+  boot.kernelModules = [ "i2c-dev" ];
+
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 

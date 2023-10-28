@@ -13,12 +13,12 @@ in
   environment.systemPackages = with pkgs; [
     beautifuldiscord
     btop
+    ddcutil
     discord
     efibootmgr
     firefox
     glxinfo
     gnome.gnome-terminal
-    gnome.gnome-tweaks
     home-manager
     htop
     intel-gpu-tools
