@@ -4,6 +4,7 @@
   enable = true;
   extensions = with pkgs.vscode-extensions; [
     bbenoist.nix
+    vscode-icons-team.vscode-icons
   ]
   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     {
@@ -16,5 +17,6 @@
   userSettings = {
     "editor.fontFamily" = "Comic Mono";
     "window.titleBarStyle" = "custom";
+    "workbench.iconTheme" = "vscode-icons";
   };
 }
