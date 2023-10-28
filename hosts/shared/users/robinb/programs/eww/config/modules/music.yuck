@@ -1,0 +1,41 @@
+(deflisten playing
+  :interval "1s"
+  :initial '{ "title": "Title", "artist": "Artist", "cover": "https://cataas.com/cat", "position": 0 }'
+  "scripts/music.sh"
+)
+
+(defwidget music []
+  (box
+    :class "widget"
+    :halign "start"
+    :space-evenly false
+    (box
+      :style "
+        background-image: url('${playing.cover}');
+        background-size: auto 100%;
+        background-position: center;
+        border-radius: 4px;
+        min-width: 40px;
+        min-height: 40px;
+        margin-right: 10px;
+      "
+      :halign "center"
+      :valign "start"
+    )
+    (box
+      :halign "start"
+      :orientation "v"
+      :space-evenly false
+      :spacing -4
+      (label
+        :class "text-xl"
+        :halign "start"
+        :text "${playing.title}"
+      )
+      (label
+        :halign "start"
+        :text "${playing.artist}"
+      )
+    )
+  )
+)

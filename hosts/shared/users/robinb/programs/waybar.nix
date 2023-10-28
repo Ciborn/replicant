@@ -11,9 +11,22 @@
       modules-right = [];
 
       clock = {
-        format = "{:%H:%M}";
+        format = "<big>{:%H:%M}</big>\n<small>{:%A, %d\/%m\/%Y}</small>";
       };
     };
   };
+  style = ''
+    * {
+      color: white;
+    }
+
+    window#waybar {
+      background: transparent;
+    }
+
+    #clock {
+      color: blue;
+    }
+  '';
   systemd.enable = true;
 }

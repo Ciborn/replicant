@@ -10,6 +10,7 @@
       dejavu_fonts
       fira
       fira-mono
+      lexend
       line-awesome
       google-fonts
       inconsolata # monospaced

@@ -8,4 +8,6 @@
 
   boot.loader.grub.gfxmodeEfi = "2560x1440";
   boot.loader.grub.useOSProber = true;
+
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 }

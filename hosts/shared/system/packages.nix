@@ -16,9 +16,9 @@ in
     ddcutil
     discord
     efibootmgr
+    eww-wayland
     firefox
     glxinfo
-    gnome.gnome-terminal
     home-manager
     htop
     intel-gpu-tools
@@ -35,10 +35,12 @@ in
     stress
     sysbench
     s-tui
+    tree
     usbutils
     vim
     vscode
     wget
+    wlr-randr
   ];
 
   # Allow unfree packages

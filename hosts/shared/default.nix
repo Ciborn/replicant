@@ -9,11 +9,20 @@
     ./users/robinb
   ];
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL          = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
   programs.firefox.enable = true;
+  programs.hyprland.enable = true;
   programs.steam.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

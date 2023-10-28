@@ -1,0 +1,24 @@
+(defpoll time
+  :interval "1s"
+  :initial '{"d": "01", "H": "01", "M": "01", "B": "janvier", "A": "lundi"}'
+  `date +'{"d": "%d", "H": "%H", "M": "%M", "B": "%B", "A": "%A"}'`
+)
+
+(defwidget clock []
+  (box
+    :class "widget"
+    :halign "end"
+    :orientation "v"
+    :space-evenly false
+    :spacing -4
+    (label
+      :class "text-xl"
+      :halign "end"
+      :text "${time.H}:${time.M}"
+    )
+    (label
+      :halign "end"
+      :text "${time.A} ${time.d} ${time.B}"
+    )
+  )
+)

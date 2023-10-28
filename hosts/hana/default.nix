@@ -4,24 +4,15 @@
   imports = [
     ./system/boot.nix
     ./system/hardware.nix
+    ./system/packages.nix
     ./users/robinb
   ];
 
   networking.hostName = "hana"; # Define your hostname.
 
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-    displayManager = {
-      defaultSession = "none+awesome";
-      gdm.enable = true;
-    };
-    xkbVariant = "";
-    videoDrivers = [ "nvidia" ];
-    windowManager.awesome.enable = true;
-  };
+  programs.hyprland.enableNvidiaPatches = true;
 
-  services.autorandr = import ./services/autorandr.nix;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia.modesetting.enable = true;
 

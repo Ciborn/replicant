@@ -1,0 +1,27 @@
+(include "./modules/clock.yuck")
+(include "./modules/music.yuck")
+
+(defwidget topbar []
+  (centerbox
+    (box
+      (music)
+      (box)
+    )
+    (box)
+    (clock)
+  )
+)
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0px"
+    :y "10px"
+    :width "2540px"
+    :height "50px"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive "true"
+  (topbar)
+)
