@@ -10,8 +10,8 @@
       "$mod SHIFT, F,                    fullscreen, 0"
       "$mod,       R,                    exec, rofi -show drun"
       "$mod,       Q,                    exec, kitty"
-      ",           XF86AudioRaiseVolume, exec, pw-volume change +0.5%"
-      ",           XF86AudioLowerVolume, exec, pw-volume change -0.5%"
+      ",           XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+"
+      ",           XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
     ];
     decoration = {
       active_opacity = 0.95;

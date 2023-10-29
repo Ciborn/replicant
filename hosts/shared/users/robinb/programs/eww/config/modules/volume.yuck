@@ -1,0 +1,53 @@
+(deflisten volume
+  :initial '{ "volume": 0, "device": "Casque" }'
+  "scripts/volume.sh"
+)
+
+(defvar open_volume false)
+
+(defwidget volume_widget []
+  (box
+    :style "
+      transition: margin-top 300ms cubic-bezier(0.05, 0.7, 0.1, 1);
+      ${open_volume ? '' : 'margin-top: -70px'}
+    "
+    (box
+      :class "widget"
+      :orientation "h"
+      :space-evenly false
+      :spacing 10
+      :valign "start"
+      (circular-progress
+        :start-at 75
+        :style "
+          color: #444444;
+        "
+        :height 40
+        :thickness 1
+        :value 100
+        :width 40
+        (circular-progress
+          :start-at 75
+          :style "color: white"
+          :thickness 3
+          :value "${volume.volume}"
+          (label :text "${volume.volume}")
+        )
+      )
+      (box
+        :orientation "v"
+        :space-evenly false
+        :spacing -4
+        (label
+          :class "text-xl"
+          :halign "start"
+          :text "Volume"
+        )
+        (label
+          :halign "start"
+          :text "${volume.device}"
+        )
+      )
+    )
+  )
+)

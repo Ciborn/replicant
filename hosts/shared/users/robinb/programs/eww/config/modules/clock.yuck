@@ -4,7 +4,7 @@
   `date +'{"d": "%d", "H": "%H", "M": "%M", "B": "%B", "A": "%A"}'`
 )
 
-(defwidget clock []
+(defwidget clock_widget []
   (box
     :class "widget"
     :halign "end"

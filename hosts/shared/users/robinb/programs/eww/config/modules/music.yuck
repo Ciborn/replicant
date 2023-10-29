@@ -4,11 +4,12 @@
   "scripts/music.sh"
 )
 
-(defwidget music []
+(defwidget music_widget []
   (box
     :class "widget"
     :halign "start"
     :space-evenly false
+    :spacing 10
     (box
       :style "
         background-image: url('${playing.cover}');
@@ -17,7 +18,6 @@
         border-radius: 4px;
         min-width: 40px;
         min-height: 40px;
-        margin-right: 10px;
       "
       :halign "center"
       :valign "start"

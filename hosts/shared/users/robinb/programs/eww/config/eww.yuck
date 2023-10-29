@@ -1,14 +1,17 @@
 (include "./modules/clock.yuck")
 (include "./modules/music.yuck")
+(include "./modules/volume.yuck")
 
 (defwidget topbar []
   (centerbox
     (box
-      (music)
-      (box)
+      :space-evenly false
+      :spacing 10
+      (music_widget)
+      (volume_widget)
     )
     (box)
-    (clock)
+    (clock_widget)
   )
 )
 

@@ -1,13 +1,9 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ... }:
 
 let
   beautifuldiscord = pkgs.callPackage ../../../pkgs/applications/beautifuldiscord { };
 in
 {
-  imports = [
-    (import "${home-manager}/nixos")
-  ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -19,16 +15,14 @@ in
     eww-wayland
     firefox
     glxinfo
-    home-manager
     htop
     intel-gpu-tools
     kitty
+    libnotify
     nano
     neofetch
-    nwg-drawer
     pciutils
     playerctl
-    pw-volume
     python3
     rofi
     spotify

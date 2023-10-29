@@ -1,5 +1,8 @@
+{ home-manager, ... }:
+
 {
   imports = [
+    (import "${home-manager}/nixos")
     ./system/boot.nix
     ./system/fonts.nix
     ./system/hardware.nix

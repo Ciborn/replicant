@@ -4,6 +4,7 @@
   enable = true;
   extensions = with pkgs.vscode-extensions; [
     bbenoist.nix
+    ms-python.python
     vscode-icons-team.vscode-icons
   ]
   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
