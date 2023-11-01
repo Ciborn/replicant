@@ -13,11 +13,10 @@
       lexend
       line-awesome
       google-fonts
-      inconsolata # monospaced
       libertine
       mononoki
       nerdfonts
-      overpass
+      open-sans
       oxygenfonts
       powerline-fonts
       source-code-pro
@@ -34,7 +33,7 @@
       hinting.autohint = true;
       defaultFonts = {
         monospace = [ "Comic Mono Normal" ];
-        sansSerif = [ "Cairo Regular" ];
+        sansSerif = [ "Open Sans" ];
         serif = [ "Source Serif Pro" ];
       };
     };
