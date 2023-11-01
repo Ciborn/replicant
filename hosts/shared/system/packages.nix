@@ -15,6 +15,7 @@ in
     eww-wayland
     firefox
     glxinfo
+    gnupg
     htop
     intel-gpu-tools
     kitty
@@ -22,6 +23,7 @@ in
     nano
     neofetch
     pciutils
+    pinentry
     playerctl
     python3
     rofi

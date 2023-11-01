@@ -21,6 +21,11 @@
   programs.hyprland.enable = true;
   programs.steam.enable = true;
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "tty";
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
