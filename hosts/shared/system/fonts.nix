@@ -16,7 +16,7 @@
       libertine
       mononoki
       nerdfonts
-      open-sans
+      noto-fonts
       oxygenfonts
       powerline-fonts
       source-code-pro
@@ -27,13 +27,9 @@
       unifont # some international languages
     ];
     fontconfig = {
-      antialias = true;
-      cache32Bit = true;
-      hinting.enable = true;
-      hinting.autohint = true;
       defaultFonts = {
         monospace = [ "Comic Mono Normal" ];
-        sansSerif = [ "Open Sans" ];
+        sansSerif = [ "Noto Sans" ];
         serif = [ "Source Serif Pro" ];
       };
     };

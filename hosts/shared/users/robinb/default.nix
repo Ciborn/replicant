@@ -14,11 +14,7 @@
   home-manager.users.robinb = {
     home.stateVersion = "23.05";
 
-    programs.eww = import ./programs/eww { inherit pkgs; };
     programs.git = import ./programs/git.nix;
-    programs.rofi = import ./programs/rofi.nix;
     programs.vscode = import ./programs/vscode.nix { inherit pkgs; };
-
-    wayland.windowManager.hyprland = import ./programs/hyprland.nix { inherit lib; };
   };
 }

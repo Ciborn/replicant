@@ -6,22 +6,25 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, home-manager, nixpkgs, ... }@inputs: let
+    specialArgs = {
+      inherit home-manager;
+      inherit nixpkgs;
+      username = "robinb";
+      cibnix = self.nixosModules.cibnix;
+    };
+  in {
     nixosConfigurations = {
       hana = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/shared
-          ./hosts/hana
-        ];
-        specialArgs = inputs;
+        modules = [ self.nixosModules.cibnix ./hosts/hana ];
+        specialArgs = specialArgs;
       };
       yeoreum = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/shared
-          ./hosts/yeoreum
-        ];
-        specialArgs = inputs;
+        modules = [ ./hosts/yeoreum ];
+        specialArgs = specialArgs;
       };
     };
+
+    nixosModules.cibnix = import ./modules;
   };
 }

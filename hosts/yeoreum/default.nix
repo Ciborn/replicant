@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../shared
     ./system/hardware.nix
     ./users/robinb
   ];

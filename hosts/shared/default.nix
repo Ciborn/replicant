@@ -1,4 +1,4 @@
-{ home-manager, ... }:
+{ cibnix, home-manager, ... }:
 
 {
   imports = [
@@ -17,8 +17,11 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
+  cibnix.ui.eww.enable = true;
+  cibnix.ui.hyprland.enable = true;
+  cibnix.ui.rofi.enable = true;
+
   programs.firefox.enable = true;
-  programs.hyprland.enable = true;
   programs.steam.enable = true;
 
   programs.gnupg.agent = {

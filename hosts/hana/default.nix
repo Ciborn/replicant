@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../shared
     ./system/boot.nix
     ./system/hardware.nix
     ./system/packages.nix

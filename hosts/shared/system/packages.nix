@@ -12,21 +12,18 @@ in
     ddcutil
     discord
     efibootmgr
-    eww-wayland
     firefox
     glxinfo
     gnupg
     htop
     intel-gpu-tools
     kitty
-    libnotify
     nano
     neofetch
     pciutils
     pinentry
     playerctl
     python3
-    rofi
     spotify
     stress
     sysbench
@@ -36,7 +33,6 @@ in
     vim
     vscode
     wget
-    wlr-randr
   ];
 
   # Allow unfree packages
