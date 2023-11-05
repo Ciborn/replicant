@@ -17,9 +17,7 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  cibnix.ui.eww.enable = true;
-  cibnix.ui.hyprland.enable = true;
-  cibnix.ui.rofi.enable = true;
+  cibnix.ui.gnome.enable = true;
 
   programs.firefox.enable = true;
   programs.steam.enable = true;

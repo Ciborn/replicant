@@ -20,7 +20,7 @@
         specialArgs = specialArgs;
       };
       yeoreum = nixpkgs.lib.nixosSystem {
-        modules = [ ./hosts/yeoreum ];
+        modules = [ self.nixosModules.cibnix ./hosts/yeoreum ];
         specialArgs = specialArgs;
       };
     };
