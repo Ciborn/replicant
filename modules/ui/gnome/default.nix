@@ -11,6 +11,8 @@ in {
     environment.systemPackages = with pkgs; [
         dconf2nix
         gnome.gnome-tweaks
+        gnomeExtensions.dash-to-panel
+        gradience
     ];
 
     home-manager.users.${username} = import ./dconf.nix;
