@@ -20,6 +20,7 @@ in
     kitty
     nano
     neofetch
+    onlyoffice-bin
     pciutils
     pinentry
     playerctl
