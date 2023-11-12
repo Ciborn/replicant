@@ -25,7 +25,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/Console" = {
-      last-window-size = mkTuple [ 572 505 ];
+      last-window-size = mkTuple [ 1148 505 ];
       theme = "auto";
     };
 
@@ -67,9 +67,12 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/background" = {
+      color-shading-type = "solid";
       picture-options = "zoom";
-      picture-uri = "/home/robinb/.config/background";
-      picture-uri-dark = "/home/robinb/.config/background";
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+      picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+      primary-color = "#241f31";
+      secondary-color = "#000000";
     };
 
     "org/gnome/desktop/calendar" = {
@@ -94,7 +97,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/desktop/notifications" = {
-      application-children = [ "org-gnome-settings" "discord" "firefox" "gnome-power-panel" "spotify" ];
+      application-children = [ "org-gnome-settings" "discord" "firefox" "gnome-power-panel" "spotify" "org-gnome-shell-extensions" "org-gnome-console" ];
     };
 
     "org/gnome/desktop/notifications/application/discord" = {
@@ -115,6 +118,14 @@ with lib.hm.gvariant;
 
     "org/gnome/desktop/notifications/application/org-gnome-settings" = {
       application-id = "org.gnome.Settings.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-gnome-shell-extensions" = {
+      application-id = "org.gnome.Shell.Extensions.desktop";
+    };
+
+    "org/gnome/desktop/notifications/application/org-qbittorrent-qbittorrent" = {
+      application-id = "org.qbittorrent.qBittorrent.desktop";
     };
 
     "org/gnome/desktop/notifications/application/spotify" = {
@@ -139,16 +150,39 @@ with lib.hm.gvariant;
       recent-files-max-age = -1;
     };
 
+    "org/gnome/desktop/screensaver" = {
+      color-shading-type = "solid";
+      picture-options = "zoom";
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+      primary-color = "#241f31";
+      secondary-color = "#000000";
+    };
+
     "org/gnome/desktop/session" = {
       idle-delay = mkUint32 300;
     };
 
     "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
       titlebar-font = "Noto Sans Bold 11";
     };
 
     "org/gnome/evolution-data-server" = {
       migrated = true;
+    };
+
+    "org/gnome/file-roller/listing" = {
+      list-mode = "as-folder";
+      name-column-width = 250;
+      show-path = false;
+      sort-method = "name";
+      sort-type = "ascending";
+    };
+
+    "org/gnome/file-roller/ui" = {
+      sidebar-width = 200;
+      window-height = 480;
+      window-width = 600;
     };
 
     "org/gnome/gnome-system-monitor" = {
@@ -178,7 +212,7 @@ with lib.hm.gvariant;
     };
 
     "org/gnome/nautilus/window-state" = {
-      initial-size = mkTuple [ 890 550 ];
+      initial-size = mkTuple [ 1099 550 ];
     };
 
     "org/gnome/nm-applet/eap/246b0aef-a10f-4562-aa07-f5ed3e7b47f0" = {
@@ -191,13 +225,18 @@ with lib.hm.gvariant;
       ignore-phase2-ca-cert = false;
     };
 
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+      night-light-temperature = mkUint32 3700;
+    };
+
     "org/gnome/shell" = {
       command-history = [ "r" ];
       disable-user-extensions = false;
       disabled-extensions = [ "places-menu@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
       favorite-apps = [ "firefox.desktop" "discord.desktop" "spotify.desktop" ];
-      last-selected-power-profile = "performance";
+      last-selected-power-profile = "power-saver";
       welcome-dialog-last-shown-version = "44.5";
     };
 
@@ -205,8 +244,14 @@ with lib.hm.gvariant;
       animate-appicon-hover = false;
       animate-appicon-hover-animation-extent = "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}";
       appicon-margin = 2;
-      appicon-padding = 8;
-      available-monitors = [ 0 ];
+      appicon-padding = 6;
+      available-monitors = [ 1 0 ];
+      dot-color-1 = "#b27070";
+      dot-color-2 = "#b27070";
+      dot-color-3 = "#b27070";
+      dot-color-4 = "#b27070";
+      dot-color-dominant = false;
+      dot-color-override = true;
       dot-position = "BOTTOM";
       dot-size = 1;
       dot-style-focused = "SEGMENTED";
@@ -216,9 +261,9 @@ with lib.hm.gvariant;
       group-apps = false;
       group-apps-label-font-color = "#ffffff";
       group-apps-label-font-color-minimized = "#ffffff";
-      group-apps-label-font-size = 14;
+      group-apps-label-font-size = 13;
       group-apps-label-font-weight = "lighter";
-      group-apps-label-max-width = 200;
+      group-apps-label-max-width = 190;
       group-apps-use-fixed-width = true;
       group-apps-use-launchers = false;
       hide-overview-on-startup = false;
@@ -230,35 +275,42 @@ with lib.hm.gvariant;
       isolate-monitors = false;
       isolate-workspaces = false;
       leftbox-padding = -1;
+      leftbox-size = 13;
       panel-anchors = ''
-        {"0":"MIDDLE"}
+        {"0":"MIDDLE","1":"MIDDLE"}
       '';
       panel-element-positions = ''
-        {"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
+        {"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"leftBox","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}
       '';
       panel-element-positions-monitors-sync = true;
       panel-lengths = ''
-        {"0":100}
+        {"0":100,"1":100}
       '';
       panel-positions = ''
         {"0":"BOTTOM"}
       '';
       panel-sizes = ''
-        {"0":48}
+        {"0":40,"1":40}
       '';
-      primary-monitor = 0;
+      primary-monitor = 1;
       show-appmenu = true;
       show-apps-icon-file = "";
       show-apps-icon-side-padding = 8;
       show-apps-override-escape = true;
       status-icon-padding = 4;
-      trans-dynamic-anim-target = 0.9;
-      trans-panel-opacity = 0.6;
-      trans-use-custom-bg = false;
+      trans-bg-color = "#0e0101";
+      trans-dynamic-anim-target = 0.7;
+      trans-gradient-bottom-color = "#561717";
+      trans-gradient-bottom-opacity = 0.2;
+      trans-gradient-top-color = "#851a1a";
+      trans-gradient-top-opacity = 0.15;
+      trans-panel-opacity = 0.0;
+      trans-use-custom-bg = true;
       trans-use-custom-gradient = false;
       trans-use-custom-opacity = true;
       trans-use-dynamic-opacity = true;
       tray-padding = -1;
+      tray-size = 13;
       window-preview-title-position = "TOP";
     };
 
@@ -271,8 +323,8 @@ with lib.hm.gvariant;
     };
 
     "org/gtk/gtk4/settings/color-chooser" = {
-      custom-colors = [ (mkTuple [ 0.47058823704719543 0.6823529601097107 ]) ];
-      selected-color = mkTuple [ true 0.8627451062202454 ];
+      custom-colors = [ (mkTuple [ 0.7 0.441 ]) (mkTuple [ 0.321569 0.580392 ]) (mkTuple [ 5.4902e-2 3.922e-3 ]) ];
+      selected-color = mkTuple [ true 0.7 ];
     };
 
     "org/gtk/gtk4/settings/file-chooser" = {
@@ -304,6 +356,5 @@ with lib.hm.gvariant;
       window-position = mkTuple [ 678 218 ];
       window-size = mkTuple [ 1203 902 ];
     };
-
   };
 }
