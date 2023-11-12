@@ -12,10 +12,14 @@ in {
         dconf2nix
         gnome.gnome-tweaks
         gnomeExtensions.dash-to-panel
+        gnomeExtensions.gsconnect
         gradience
     ];
 
     home-manager.users.${username} = import ./dconf.nix;
+
+    programs.kdeconnect.enable = true;
+    programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
 
     services.xserver.desktopManager.gnome.enable = true;
   };
