@@ -8,6 +8,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     beautifuldiscord
+    bitwarden
     btop
     ddcutil
     discord
@@ -25,6 +26,7 @@ in
     pinentry
     playerctl
     python3
+    qbittorrent
     spotify
     stress
     sysbench
