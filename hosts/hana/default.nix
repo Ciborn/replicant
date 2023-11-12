@@ -19,8 +19,6 @@
 
   system.stateVersion = "22.11";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 }

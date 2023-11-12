@@ -33,6 +33,8 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
