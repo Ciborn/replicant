@@ -17,7 +17,8 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  cibnix.ui.gnome.enable = true;
+  cibnix.desktops.gnome.enable = true;
+  cibnix.tools.quarto.enable = true;
 
   programs.firefox.enable = true;
   programs.steam.enable = true;
@@ -26,6 +27,9 @@
     enable = true;
     pinentryFlavor = "tty";
   };
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

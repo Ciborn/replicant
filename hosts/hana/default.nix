@@ -18,7 +18,4 @@
   hardware.nvidia.modesetting.enable = true;
 
   system.stateVersion = "22.11";
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
 }

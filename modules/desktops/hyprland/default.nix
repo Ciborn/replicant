@@ -1,9 +1,9 @@
 { config, lib, pkgs, username, ... }:
 
 with lib; let
-  cfg = config.cibnix.ui.hyprland;
+  cfg = config.cibnix.desktops.hyprland;
 in {
-  options.cibnix.ui.hyprland = {
+  options.cibnix.desktops.hyprland = {
     enable = mkEnableOption "Enable Hyprland";
   };
 

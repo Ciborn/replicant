@@ -13,14 +13,16 @@ in
     ddcutil
     discord
     efibootmgr
+    fastfetch
     firefox
     glxinfo
     gnupg
     htop
     intel-gpu-tools
     kitty
+    libguestfs-with-appliance
+    lm_sensors
     nano
-    neofetch
     onlyoffice-bin
     pciutils
     pinentry
@@ -28,9 +30,11 @@ in
     python3
     qbittorrent
     spotify
+    steamPackages.steamcmd
     stress
     sysbench
     s-tui
+    thunderbird
     tree
     usbutils
     vim

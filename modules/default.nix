@@ -2,9 +2,11 @@
 
 {
   imports = [
-    ./ui/eww
-    ./ui/gnome
-    ./ui/hyprland
-    ./ui/rofi
+    ./desktops/eww
+    ./desktops/gnome
+    ./desktops/hyprland
+    ./desktops/rofi
+    ./shells/zsh
+    ./tools/quarto
   ];
 }

@@ -1,22 +1,21 @@
 { config, lib, pkgs, username, ... }:
 
 with lib; let
-  cfg = config.cibnix.ui.gnome;
+  cfg = config.cibnix.desktops.gnome;
 in {
-  options.cibnix.ui.gnome = {
+  options.cibnix.desktops.gnome = {
     enable = mkEnableOption "Enable GNOME";
   };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
         dconf2nix
+        gnome.gnome-color-manager
         gnome.gnome-tweaks
         gnomeExtensions.dash-to-panel
         gnomeExtensions.gsconnect
         gradience
     ];
-
-    home-manager.users.${username} = import ./dconf.nix;
 
     programs.kdeconnect.enable = true;
     programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;

@@ -1,9 +1,9 @@
 { config, lib, pkgs, username, ... }:
 
 with lib; let
-  cfg = config.cibnix.ui.rofi;
+  cfg = config.cibnix.desktops.rofi;
 in {
-  options.cibnix.ui.rofi = {
+  options.cibnix.desktops.rofi = {
     enable = mkEnableOption "Enable rofi";
   };
 
