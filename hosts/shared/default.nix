@@ -1,4 +1,4 @@
-{ cibnix, home-manager, ... }:
+{ cibnix, home-manager, pkgs, ... }:
 
 {
   imports = [
@@ -18,6 +18,7 @@
   };
 
   cibnix.desktops.gnome.enable = true;
+  cibnix.shells.zsh.enable = true;
   cibnix.tools.quarto.enable = true;
 
   programs.firefox.enable = true;
