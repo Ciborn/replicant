@@ -5,7 +5,7 @@
   extensions = with pkgs.vscode-extensions; [
     bbenoist.nix
     eamodio.gitlens
-    ms-python.python
+    mechatroner.rainbow-csv
     vscode-icons-team.vscode-icons
   ]
   ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

@@ -18,6 +18,8 @@
   };
 
   cibnix.desktops.gnome.enable = true;
+  cibnix.development.nodejs.enable = true;
+  cibnix.development.python.enable = true;
   cibnix.shells.zsh.enable = true;
   cibnix.tools.quarto.enable = true;
 

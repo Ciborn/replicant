@@ -27,7 +27,6 @@ in
     pciutils
     pinentry
     playerctl
-    python3
     qbittorrent
     spotify
     steamPackages.steamcmd
