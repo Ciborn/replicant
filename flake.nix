@@ -8,19 +8,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
   };
 
-  outputs = { self, home-manager, nixpkgs, ... }@inputs: let
+  outputs = { self, ... }@inputs: let
     specialArgs = {
-      inherit home-manager;
-      inherit nixpkgs;
+      home-manager = inputs.home-manager;
       username = "robinb";
     };
   in {
     nixosConfigurations = {
-      hana = nixpkgs.lib.nixosSystem {
+      hana = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/hana ];
         specialArgs = specialArgs;
       };
-      yeoreum = nixpkgs.lib.nixosSystem {
+      yeoreum = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/yeoreum ];
         specialArgs = specialArgs;
       };
