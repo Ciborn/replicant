@@ -1,4 +1,4 @@
-{ cibnix, home-manager, pkgs, ... }:
+{ cibnix, home-manager, lib, pkgs, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  cibnix.desktops.gnome.enable = true;
+  cibnix.desktops.kde.enable = true;
   cibnix.development.nodejs.enable = true;
   cibnix.development.python.enable = true;
   cibnix.shells.zsh.enable = true;
@@ -36,9 +36,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -62,11 +59,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 3000 ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
