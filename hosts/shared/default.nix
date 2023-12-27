@@ -12,11 +12,6 @@
     ./users/robinb
   ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL          = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
-
   cibnix.desktops.kde.enable = true;
   cibnix.development.nodejs.enable = true;
   cibnix.development.python.enable = true;
