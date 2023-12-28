@@ -31,7 +31,6 @@ in
     playerctl
     qbittorrent
     spotify
-    steamPackages.steamcmd
     stress
     sysbench
     s-tui

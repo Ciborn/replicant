@@ -14,6 +14,8 @@
     ./development/nodejs
     ./development/python
 
+    ./servers/sunshine
+
     ./shells/zsh
     
     ./tools/quarto
