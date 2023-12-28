@@ -5,9 +5,11 @@
     ../shared
     ./system/boot.nix
     ./system/hardware.nix
-    ./system/packages.nix
-    ./users/robinb
   ];
+
+  environment.systemPackages = with pkgs; [ os-prober ];
+
+  cibnix.audio.easyeffects.enable = true;
 
   networking.hostName = "hana"; # Define your hostname.
 

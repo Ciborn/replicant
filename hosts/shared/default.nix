@@ -8,14 +8,18 @@
     ./system/hardware.nix
     ./system/locale.nix
     ./system/packages.nix
-    ./system/sound.nix
     ./users/robinb
   ];
 
+  cibnix.audio.pipewire.enable = true;
+
   cibnix.desktops.kde.enable = true;
+
   cibnix.development.nodejs.enable = true;
   cibnix.development.python.enable = true;
+
   cibnix.shells.zsh.enable = true;
+
   cibnix.tools.quarto.enable = true;
 
   programs.firefox.enable = true;

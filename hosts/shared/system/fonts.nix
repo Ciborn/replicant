@@ -4,12 +4,9 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      #font-awesome_4
       comic-mono
       corefonts # Microsoft free fonts
       dejavu_fonts
-      fira
-      fira-mono
       lexend
       line-awesome
       google-fonts

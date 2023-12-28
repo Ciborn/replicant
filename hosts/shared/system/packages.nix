@@ -12,6 +12,7 @@ in
     beautifuldiscord
     bitwarden
     btop
+    compsize
     ddcutil
     discord
     efibootmgr
@@ -22,7 +23,6 @@ in
     htop
     intel-gpu-tools
     kitty
-    libguestfs-with-appliance
     lm_sensors
     nano
     onlyoffice-bin

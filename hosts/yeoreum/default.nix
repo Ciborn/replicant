@@ -4,7 +4,6 @@
   imports = [
     ../shared
     ./system/hardware.nix
-    ./users/robinb
   ];
 
   boot.loader.grub.gfxmodeEfi = "1920x1200";
