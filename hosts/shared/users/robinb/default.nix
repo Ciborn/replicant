@@ -6,7 +6,6 @@
     isNormalUser = true;
     description = "Robin Bourachot";
     extraGroups = [ "docker" "networkmanager" "wheel" ];
-    packages = with pkgs; [ ];
   };
 
   home-manager.useGlobalPkgs = true;

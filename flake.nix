@@ -15,13 +15,17 @@
     };
   in {
     nixosConfigurations = {
+      donghoon = inputs.nixpkgs.lib.nixosSystem {
+        modules = [ self.nixosModules.cibnix ./hosts/donghoon ];
+        specialArgs = specialArgs // { nixpkgs = inputs.nixpkgs; };
+      };
       hana = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/hana ];
-        specialArgs = specialArgs;
+        inherit specialArgs;
       };
       yeoreum = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/yeoreum ];
-        specialArgs = specialArgs;
+        inherit specialArgs;
       };
     };
 

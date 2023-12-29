@@ -22,7 +22,6 @@ in
     gnupg
     htop
     intel-gpu-tools
-    kitty
     lm_sensors
     nano
     onlyoffice-bin

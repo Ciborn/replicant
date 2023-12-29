@@ -7,6 +7,8 @@
     ./system/hardware.nix
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   environment.systemPackages = with pkgs; [
     os-prober
     steamPackages.steamcmd
