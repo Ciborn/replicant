@@ -15,7 +15,9 @@ in {
       typescript
     ];
 
-    home-manager.users.${username}.programs.vscode.extensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    home-manager.users.${username}.programs.vscode.extensions = with pkgs.vscode-extensions; [
+      dbaeumer.vscode-eslint
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "volar";
         publisher = "Vue";

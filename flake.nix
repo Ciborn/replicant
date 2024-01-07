@@ -5,12 +5,15 @@
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
   };
 
   outputs = { self, ... }@inputs: let
     specialArgs = {
       home-manager = inputs.home-manager;
+      nixos-hardware = inputs.nixos-hardware;
       username = "robinb";
     };
   in {

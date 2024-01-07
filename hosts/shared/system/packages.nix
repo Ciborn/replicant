@@ -1,24 +1,21 @@
 { lib, pkgs, ... }:
 
 let
-  beautifuldiscord = pkgs.callPackage ../../../pkgs/applications/beautifuldiscord { };
-
   electronWrapper = (import ../../../overlays/electron.nix { inherit pkgs; });
 in
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    beautifuldiscord
     bitwarden
     btop
+    cloudflared # TODO: should be moved to a shell.nix
     compsize
     ddcutil
     discord
     efibootmgr
     fastfetch
     firefox
-    glxinfo
     gnupg
     htop
     intel-gpu-tools
@@ -27,12 +24,8 @@ in
     onlyoffice-bin
     pciutils
     pinentry
-    playerctl
     qbittorrent
     spotify
-    stress
-    sysbench
-    s-tui
     thunderbird
     tree
     usbutils

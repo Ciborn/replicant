@@ -1,8 +1,9 @@
-{ cibnix, home-manager, lib, pkgs, ... }:
+{ cibnix, home-manager, nixos-hardware, lib, pkgs, ... }:
 
 {
   imports = [
-    (import "${home-manager}/nixos")
+    home-manager.nixosModules.home-manager
+    nixos-hardware.nixosModules.common-pc-ssd
     ./system/boot.nix
     ./system/fonts.nix
     ./system/hardware.nix
@@ -11,6 +12,7 @@
     ./users/robinb
   ];
 
+  cibnix.audio.easyeffects.enable = true;
   cibnix.audio.pipewire.enable = true;
 
   cibnix.desktops.kde.enable = true;
@@ -32,9 +34,6 @@
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

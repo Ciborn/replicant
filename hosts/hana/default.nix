@@ -14,7 +14,6 @@
     steamPackages.steamcmd
   ];
 
-  cibnix.audio.easyeffects.enable = true;
   cibnix.servers.sunshine.enable = true;
 
   networking.hostName = "hana"; # Define your hostname.

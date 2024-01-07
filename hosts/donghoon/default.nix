@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import "${home-manager}/nixos")
+    home-manager.nixosModules.home-manager
     (import "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix")
   ];
 
@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     btop
-    fastfetch
+    # fastfetch
     htop
     lm_sensors
     nano
@@ -28,10 +28,9 @@
   networking.wireless.enable = true;
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
-  # nixpkgs.hostPlatform.system = "x86_64-linux";
   nixpkgs.buildPlatform.system = "x86_64-linux";
 
-  sdImage.compressImage = false;
+  # sdImage.compressImage = false;
 
   services.openssh = {
     enable = true;
