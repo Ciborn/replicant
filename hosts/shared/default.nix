@@ -24,6 +24,8 @@
 
   cibnix.tools.quarto.enable = true;
 
+  nix.settings.trusted-users = [ "root" "robinb" ];
+
   programs.firefox.enable = true;
   programs.steam.enable = true;
 

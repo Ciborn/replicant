@@ -8,6 +8,10 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      libsForQt5.kcalc
+    ];
+
     services.xserver.enable = true;
     services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;

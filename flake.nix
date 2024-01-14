@@ -2,6 +2,9 @@
   description = "cib's nix config";
 
   inputs = {
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -22,9 +25,13 @@
         modules = [ self.nixosModules.cibnix ./hosts/donghoon ];
         specialArgs = specialArgs // { nixpkgs = inputs.nixpkgs; };
       };
+      emil = inputs.nixpkgs.lib.nixosSystem {
+        modules = [ self.nixosModules.cibnix ./hosts/emil ];
+        specialArgs = specialArgs // { nixpkgs = inputs.nixpkgs; };
+      };
       hana = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/hana ];
-        inherit specialArgs;
+        specialArgs = specialArgs // { aagl = inputs.aagl; };
       };
       yeoreum = inputs.nixpkgs.lib.nixosSystem {
         modules = [ self.nixosModules.cibnix ./hosts/yeoreum ];

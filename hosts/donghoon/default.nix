@@ -1,8 +1,8 @@
-{ config, pkgs, home-manager, nixpkgs, ... }:
+{ config, lib, pkgs, home-manager, nixpkgs, ... }:
 
 {
   imports = [
-    home-manager.nixosModules.home-manager
+    (import "${home-manager}/nixos")
     (import "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix")
   ];
 
@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     btop
-    # fastfetch
+    fastfetch
     htop
     lm_sensors
     nano
@@ -21,16 +21,27 @@
     wget
   ];
 
+  hardware.enableRedistributableFirmware = true;
+  hardware.pulseaudio.enable = false;
+
   networking.firewall.allowedTCPPorts = [ 22 ];
   
   networking.hostName = "donghoon";
-
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
   networking.wireless.enable = true;
+  networking.wireless.interfaces = [ "wlan0" ];
+  networking.wireless.networks = { };
 
   nixpkgs.hostPlatform.system = "aarch64-linux";
+  # nixpkgs.hostPlatform.system = "x86_64-linux";
   nixpkgs.buildPlatform.system = "x86_64-linux";
 
-  # sdImage.compressImage = false;
+  # remove rpm support from fastfetch since we use nix (duh!), which fails to build anyways
+  nixpkgs.overlays = [
+    (final: prev: { fastfetch = prev.fastfetch.override { rpm = null; }; })
+  ];
+
+  sdImage.compressImage = false;
 
   services.openssh = {
     enable = true;

@@ -17,6 +17,7 @@ in
     fastfetch
     firefox
     gnupg
+    gparted
     htop
     intel-gpu-tools
     lm_sensors
