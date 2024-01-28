@@ -15,30 +15,40 @@
 
   outputs = { self, ... }@inputs: let
     specialArgs = {
-      home-manager = inputs.home-manager;
-      nixos-hardware = inputs.nixos-hardware;
+      inherit (inputs) home-manager nixos-hardware;
       username = "robinb";
     };
   in {
     nixosConfigurations = {
       donghoon = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ self.nixosModules.cibnix ./hosts/donghoon ];
+        modules = [
+          self.nixosModules.chiral
+          self.nixosModules.replicant
+          ./hosts/donghoon
+        ];
         specialArgs = specialArgs // { nixpkgs = inputs.nixpkgs; };
       };
-      emil = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ self.nixosModules.cibnix ./hosts/emil ];
-        specialArgs = specialArgs // { nixpkgs = inputs.nixpkgs; };
-      };
+
       hana = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ self.nixosModules.cibnix ./hosts/hana ];
+        modules = [
+          self.nixosModules.replicant
+          ./hosts/hana
+        ];
         specialArgs = specialArgs // { aagl = inputs.aagl; };
       };
+
       yeoreum = inputs.nixpkgs.lib.nixosSystem {
-        modules = [ self.nixosModules.cibnix ./hosts/yeoreum ];
+        modules = [
+          self.nixosModules.replicant
+          ./hosts/yeoreum
+        ];
         inherit specialArgs;
       };
     };
 
-    nixosModules.cibnix = import ./modules;
+    nixosModules = {
+      chiral = import ./modules/chiral;
+      replicant = import ./modules/replicant;
+    };
   };
 }

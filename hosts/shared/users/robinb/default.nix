@@ -1,6 +1,8 @@
 { lib, pkgs, ... }:
 
 {
+  nix.settings.trusted-users = [ "robinb" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.robinb = {
     isNormalUser = true;

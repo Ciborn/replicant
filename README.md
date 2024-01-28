@@ -5,18 +5,18 @@ declarative compooter goes brrrrrr
 
 ### Hosts (NixOS configurations)
 
-| Hostname     | Description                         | Name's origin             |
-| ------------ | ----------------------------------- | ------------------------- |
-| `donghoon`   | Raspberry Pi 4 server *(inactive)*  | "*My Mister*" series      |
-| `emil`       | media automation server *(testing)* | "*NieR*" game             |
-| `hana`       | PC                                  | "*Demon Catchers*" series |
-| `yeoreum`    | laptop                              | "*Summer Strike*" series  |
+| Hostname     | System          | Description                         | Name's origin             |
+| ------------ | --------------- | ----------------------------------- | ------------------------- |
+| `donghoon`   | `aarch64-linux` | "homelab" (hosted on OCI)           | *"My Mister"* series      |
+| `hana`       | `x86_64-linux`  | PC                                  | *"Demon Catchers"* series |
+| `yeoreum`    | `x86_64-linux`  | laptop                              | *"Summer Strike"* series  |
 
 ### Modules
 
-| Name     | Description   |
-| -------- | ------------- |
-| `cibnix` | misc. modules |
+| Name        | Description                                       | Name's origin            |
+| ----------- | ------------------------------------------------- | ------------------------ |
+| `chiral`    | server-related modules and services configuration | *"DEATH STRANDING"* game |
+| `replicant` | shell and desktop-related modules                 | *"NieR"* game            |
 
 ## Authors
 - Robin "cib" Bourachot <[me@cib.sh](mailto:me@cib.sh)>

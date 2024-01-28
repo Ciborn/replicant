@@ -1,4 +1,4 @@
-{ cibnix, home-manager, nixos-hardware, lib, pkgs, ... }:
+{ replicant, home-manager, nixos-hardware, lib, pkgs, ... }:
 
 {
   imports = [
@@ -12,19 +12,20 @@
     ./users/robinb
   ];
 
-  cibnix.audio.easyeffects.enable = true;
-  cibnix.audio.pipewire.enable = true;
+  replicant = {
+    audio.easyeffects.enable = true;
+    audio.pipewire.enable = true;
 
-  cibnix.desktops.kde.enable = true;
+    desktops.kde.enable = true;
 
-  cibnix.development.nodejs.enable = true;
-  cibnix.development.python.enable = true;
+    development.nodejs.enable = true;
+    development.python.enable = true;
 
-  cibnix.shells.zsh.enable = true;
+    shells.useCommonTools = true;
+    shells.zsh.enable = true;
 
-  cibnix.tools.quarto.enable = true;
-
-  nix.settings.trusted-users = [ "root" "robinb" ];
+    tools.quarto.enable = true;
+  };
 
   programs.firefox.enable = true;
   programs.steam.enable = true;

@@ -17,16 +17,10 @@
 
   environment.systemPackages = with pkgs; [
     os-prober
+    prismlauncher
     steamPackages.steamcmd
   ];
 
-  cibnix.servers.sunshine.enable = true;
-
-  networking.extraHosts = "
-    127.0.0.1 prowlarr.emil
-    127.0.0.1 radarr.emil
-    127.0.0.1 sonarr.emil
-  ";
   networking.hostName = "hana"; # Define your hostname.
 
   nix.settings = aagl.nixConfig;
