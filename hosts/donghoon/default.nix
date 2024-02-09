@@ -2,8 +2,9 @@
 
 {
   imports = [
-    (import "${home-manager}/nixos")
-    (import "${nixpkgs}/nixos/modules/virtualisation/oci-image.nix")
+    # (import "${nixpkgs}/nixos/modules/virtualisation/oci-image.nix")
+    home-manager.nixosModules.home-manager
+    ./containers
   ];
 
   chiral = {
@@ -16,12 +17,21 @@
   };
 
   hardware.pulseaudio.enable = false;
-  
-  networking.hostName = "donghoon";
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
-  nixpkgs.hostPlatform.system = "aarch64-linux";
-  nixpkgs.buildPlatform.system = "x86_64-linux";
+  networking = {
+    hostName = "donghoon";
+
+    nat = {
+      enable = true;
+      enableIPv6 = true;
+      externalInterface = "eth0";
+      internalInterfaces = [ "ve-+" ];
+    };
+  };
+
+  nixpkgs.hostPlatform.system = "x86_64-linux";
+  # nixpkgs.hostPlatform.system = "aarch64-linux";
+  # nixpkgs.buildPlatform.system = "x86_64-linux";
 
   system.stateVersion = "23.11";
 
