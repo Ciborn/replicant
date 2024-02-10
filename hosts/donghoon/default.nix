@@ -18,16 +18,8 @@
 
   hardware.pulseaudio.enable = false;
 
-  networking = {
-    hostName = "donghoon";
-
-    nat = {
-      enable = true;
-      enableIPv6 = true;
-      externalInterface = "eth0";
-      internalInterfaces = [ "ve-+" ];
-    };
-  };
+  networking.hostName = "donghoon";
+  networking.useDHCP = false;
 
   nixpkgs.hostPlatform.system = "x86_64-linux";
   # nixpkgs.hostPlatform.system = "aarch64-linux";
@@ -42,11 +34,21 @@
   };
 
   virtualisation.vmVariant = {
+    # create bridge to host's tap0 interface
+    networking.bridges.br0.interfaces = [ "eth1" ];
+    networking.interfaces.br0.ipv6.addresses = [{ address = "fca0::10"; prefixLength = 16; }];
+
     users.users.robinb.password = "password";
+
     virtualisation = {
-      memorySize = 8192;
       cores = 4;
       graphics = false;
+      memorySize = 8192;
+
+      qemu.networkingOptions = [
+        "-device virtio-net,netdev=tap"
+        "-netdev tap,id=tap,ifname=tap0,script=no,downscript=no"
+      ];
     };
   };
 }

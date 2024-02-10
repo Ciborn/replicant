@@ -1,7 +1,7 @@
 { ... }:
 
 let
-  ip = "fc14::101";
+  ip = "fca0:0001:1001::1";
 in
 {
   containers.traefik = {
@@ -9,13 +9,13 @@ in
     autoStart = true;
 
     # networking
-    hostAddress6  = "${ip}a";
-    localAddress6 = "${ip}b";
+    hostBridge = "br0";
+    localAddress6 = "${ip}/16";
     privateNetwork = true;
 
     config = { config, ... }: {
-      networking.firewall.allowedTCPPorts = [ 80 443 ];
-      networking.firewall.allowedUDPPorts = [ 80 443 ]; # HTTP/3
+      networking.firewall.allowedTCPPorts = [ 80 443 9091 ];
+      networking.firewall.allowedUDPPorts = [ 443 ]; # HTTP/3
 
       services.traefik = {
         enable = true;
@@ -25,7 +25,20 @@ in
           
           entryPoints = {
             http.address = ":80";
+
             https.address = ":443";
+            https.http3 = { };
+
+            metrics.address = ":9091";
+          };
+
+          experimental.http3 = true;
+
+          metrics.prometheus = {
+            addEntryPointsLabels = true;
+            addRoutersLabels = true;
+            addServicesLabels = true;
+            entryPoint = "metrics";
           };
         };
       };

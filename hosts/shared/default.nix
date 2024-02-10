@@ -30,6 +30,11 @@
     tools.quarto.enable = true;
   };
 
+  networking.interfaces.tap0 = {
+    ipv6.addresses = [{ address = "fca0::1"; prefixLength = 16; }];
+    virtual = true;
+  };
+
   programs.firefox.enable = true;
   programs.steam.enable = true;
 

@@ -1,9 +1,9 @@
 { config, ... }:
 
 let
-  ip = "fc14::211";
   port = config.services.paperless.port;
   service = "paperless";
+  ip = "fca0:0001:2101::1";
 in
 {
   containers.${service} = {
@@ -11,15 +11,15 @@ in
     autoStart = true;
 
     # networking
-    hostAddress6  = "${ip}a";
-    localAddress6 = "${ip}b";
+    hostBridge = "br0";
+    localAddress6 = "${ip}/16";
     privateNetwork = true;
 
     config = { config, ... }: {
       networking.firewall.allowedTCPPorts = [ port ];
 
       services.paperless = {
-        address = "fc14::101b";
+        address = "[fca0:0001:1001::1]";
         enable = true;
       };
 
@@ -34,6 +34,6 @@ in
       inherit service;
     };
 
-    services.${service}.loadBalancer.servers = [{ url = "http://[${ip}b]:${toString port}"; }];
+    services.${service}.loadBalancer.servers = [{ url = "http://[${ip}]:${toString port}"; }];
   };
 }
