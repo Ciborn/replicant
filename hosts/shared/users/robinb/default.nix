@@ -16,6 +16,5 @@
     home.stateVersion = "23.05";
 
     programs.git = import ./programs/git.nix;
-    programs.vscode = import ./programs/vscode.nix { inherit pkgs; };
   };
 }

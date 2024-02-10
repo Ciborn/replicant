@@ -14,6 +14,8 @@
     ./development/nodejs
     ./development/python
 
+    ./editors/vscode
+
     ./servers/sunshine
 
     ./shells

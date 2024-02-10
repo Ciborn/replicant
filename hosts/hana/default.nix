@@ -1,13 +1,14 @@
 {
-  config,
-  pkgs,
-  username,
   aagl,
+  config,
+  nixos-hardware,
+  pkgs,
 ... }:
 
 {
   imports = [
     aagl.nixosModules.default
+    nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     ../shared
     ./system/boot.nix
     ./system/hardware.nix
@@ -21,23 +22,18 @@
     steamPackages.steamcmd
   ];
 
-  networking.hostName = "hana"; # Define your hostname.
-
-  nix.settings = aagl.nixConfig;
+  networking.hostName = "hana";
 
   # NVIDIA GPU-related configuration
   programs.hyprland.enableNvidiaPatches = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.modesetting.enable = true;
 
   programs.anime-game-launcher.enable = true;
 
   services.xserver.displayManager = {
     autoLogin.enable = true;
-    autoLogin.user = username;
+    autoLogin.user = "robinb";
   };
-
-  swapDevices = [{ device = "/dev/sda3"; }];
 
   system.stateVersion = "22.11";
 }

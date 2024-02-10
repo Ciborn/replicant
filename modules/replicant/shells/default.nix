@@ -9,15 +9,15 @@ in {
 
   config = mkIf cfg.useCommonTools {
     environment.systemPackages = with pkgs; [
-        btop
-        fastfetch
-        htop
-        lm_sensors
-        nano
-        pciutils
-        tree
-        vim
-        wget
+      btop
+      fastfetch
+      htop
+      lm_sensors
+      nano
+      pciutils
+      tree
+      vim
+      wget
     ];
   };
 }
