@@ -1,10 +1,10 @@
-{ replicant, home-manager, nixos-hardware, lib, pkgs, ... }:
+{ replicant, inputs, lib, pkgs, ... }:
 
 {
   imports = [
-    home-manager.nixosModules.home-manager
-    nixos-hardware.nixosModules.common-cpu-intel
-    nixos-hardware.nixosModules.common-pc-ssd
+    inputs.home-manager.nixosModules.home-manager
+    inputs.nixos-hardware.nixosModules.common-cpu-intel
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./system/boot.nix
     ./system/fonts.nix
     ./system/hardware.nix

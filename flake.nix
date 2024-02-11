@@ -11,11 +11,13 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+
+    nur.url = "github:nix-community/nur/master";
   };
 
   outputs = { self, ... }@inputs: let
     specialArgs = {
-      inherit (inputs) home-manager nixos-hardware;
+      inherit inputs;
       username = "robinb";
     };
   in {
@@ -26,7 +28,7 @@
           self.nixosModules.replicant
           ./hosts/donghoon
         ];
-        specialArgs = specialArgs // { inherit (self.nixosModules.chiral); };
+        inherit specialArgs;
       };
 
       hana = inputs.nixpkgs.lib.nixosSystem {
@@ -34,7 +36,7 @@
           self.nixosModules.replicant
           ./hosts/hana
         ];
-        specialArgs = specialArgs // { aagl = inputs.aagl; };
+        inherit specialArgs;
       };
 
       yeoreum = inputs.nixpkgs.lib.nixosSystem {

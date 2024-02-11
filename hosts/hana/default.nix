@@ -1,14 +1,9 @@
-{
-  aagl,
-  config,
-  nixos-hardware,
-  pkgs,
-... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
-    aagl.nixosModules.default
-    nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    inputs.aagl.nixosModules.default
+    inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
     ../shared
     ./system/boot.nix
     ./system/hardware.nix

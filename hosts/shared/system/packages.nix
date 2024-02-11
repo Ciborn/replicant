@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -8,7 +8,6 @@
     ddcutil
     discord
     efibootmgr
-    firefox
     gnupg
     gparted
     intel-gpu-tools
@@ -25,5 +24,5 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = import ../../../overlays { inherit pkgs; };
+  nixpkgs.overlays = import ../../../overlays { inherit pkgs; } ++ [ inputs.nur.overlay ];
 }
