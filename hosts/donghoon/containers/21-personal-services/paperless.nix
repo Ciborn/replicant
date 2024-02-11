@@ -31,6 +31,6 @@ in
 
   chiral.servers.traefik.services.paperless = {
     routers.http.subdomain = service;
-    proxyUrl = "http://[${ip}]:${toString port}";
+    url = "http://[${ip}]:${toString port}";
   };
 }

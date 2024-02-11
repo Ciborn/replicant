@@ -1,9 +1,9 @@
-{ config, lib, pkgs, home-manager, nixpkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
-    # (import "${nixpkgs}/nixos/modules/virtualisation/oci-image.nix")
-    home-manager.nixosModules.home-manager
+    # (import "${inputs.nixpkgs}/nixos/modules/virtualisation/oci-image.nix")
+    inputs.home-manager.nixosModules.home-manager
     ./containers
   ];
 

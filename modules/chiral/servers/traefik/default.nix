@@ -29,7 +29,7 @@ in {
             }));
           };
 
-          proxyUrl = mkOption {
+          url = mkOption {
             description = "The IP:port combination of the service.";
             type = types.str;
           };
@@ -47,7 +47,7 @@ in {
       }) (lib.attrsets.mergeAttrsList (attrValues (mapAttrs (service: conf: mapAttrs' (entrypoint: conf: nameValuePair "${service}-${entrypoint}" (lib.attrsets.mergeAttrsList [ { inherit entrypoint service; } conf ])) conf.routers) cfg.services)));
 
       services = mapAttrs (service: conf: {
-        loadBalancer.servers = [{ url = conf.proxyUrl; }];
+        loadBalancer.servers = [{ inherit (conf) url; }];
       }) cfg.services;
     };
   };
