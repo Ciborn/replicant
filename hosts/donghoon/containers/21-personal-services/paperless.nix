@@ -1,12 +1,14 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
+  mkContainer = (import ../../../../lib/mkContainer.nix { }).mkContainer;
+
   port = config.services.paperless.port;
   service = "paperless";
   ip = "fca0:0001:2101::1";
 in
 {
-  containers.${service} = {
+  containers.${service} = mkContainer { inherit ip; } {
     # meta
     autoStart = true;
 
@@ -19,7 +21,7 @@ in
       networking.firewall.allowedTCPPorts = [ port ];
 
       services.paperless = {
-        address = "[fca0:0001:1001::1]";
+        address = "[::]";
         enable = true;
       };
 
@@ -27,13 +29,8 @@ in
     };
   };
 
-  containers.traefik.config.services.traefik.dynamicConfigOptions.http = {
-    routers."${service}-http" = {
-      entrypoints = "http";
-      rule = "Host(`${service}.donghoon`)";
-      inherit service;
-    };
-
-    services.${service}.loadBalancer.servers = [{ url = "http://[${ip}]:${toString port}"; }];
+  chiral.servers.traefik.services.paperless = {
+    routers.http.subdomain = service;
+    proxyUrl = "http://[${ip}]:${toString port}";
   };
 }

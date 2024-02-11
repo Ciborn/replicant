@@ -3,5 +3,6 @@
 {
   imports = [
     ./servers/openssh
+    ./servers/traefik
   ];
 }

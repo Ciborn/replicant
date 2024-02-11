@@ -1,18 +1,12 @@
-{ ... }:
+{ config, lib, ... }:
 
 let
+  mkContainer = (import ../../../../lib/mkContainer.nix { }).mkContainer;
+
   ip = "fca0:0001:1001::1";
 in
 {
-  containers.traefik = {
-    # meta
-    autoStart = true;
-
-    # networking
-    hostBridge = "br0";
-    localAddress6 = "${ip}/16";
-    privateNetwork = true;
-
+  containers.traefik = mkContainer { inherit ip; } {
     config = { config, ... }: {
       networking.firewall.allowedTCPPorts = [ 80 443 9091 ];
       networking.firewall.allowedUDPPorts = [ 443 ]; # HTTP/3

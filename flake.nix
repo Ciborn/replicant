@@ -26,7 +26,7 @@
           self.nixosModules.replicant
           ./hosts/donghoon
         ];
-        specialArgs = specialArgs // { inherit (self.nixosModules) chiral; };
+        specialArgs = specialArgs // { inherit (self.nixosModules.chiral); };
       };
 
       hana = inputs.nixpkgs.lib.nixosSystem {
