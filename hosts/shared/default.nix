@@ -17,6 +17,8 @@
     audio.easyeffects.enable = true;
     audio.pipewire.enable = true;
 
+    browsers.firefox.enable = true;
+
     desktops.kde.enable = true;
 
     development.nodejs.enable = true;
@@ -35,7 +37,6 @@
     virtual = true;
   };
 
-  programs.firefox.enable = true;
   programs.steam.enable = true;
 
   programs.gnupg.agent = {

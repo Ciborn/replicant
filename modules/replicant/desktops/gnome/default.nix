@@ -17,6 +17,8 @@ in {
         gradience
     ];
 
+    home-manager.users.${username}.programs.firefox.enableGnomeExtensions = true;
+
     programs.kdeconnect.enable = true;
     programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
 

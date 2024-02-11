@@ -5,6 +5,8 @@
     ./audio/easyeffects
     ./audio/pipewire
 
+    ./browsers/firefox
+
     ./desktops/eww
     ./desktops/gnome
     ./desktops/hyprland
