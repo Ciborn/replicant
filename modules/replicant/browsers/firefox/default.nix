@@ -30,6 +30,16 @@ in {
           force = true;
 
           engines = {
+            "MyNixOS" = {
+              urls = [{
+                template = "https://mynixos.com/search";
+                params = [{ name = "q"; value = "{searchTerms}"; }];
+              }];
+
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+              definedAliases = [ "@mn" ];
+            };
+
             "Nix Packages" = {
               urls = [{
                 template = "https://search.nixos.org/packages";
@@ -45,6 +55,10 @@ in {
 
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
+        };
+
+        settings = {
+          "intl.locale.requested" = "fr";
         };
       };
     };
