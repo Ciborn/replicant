@@ -13,6 +13,7 @@ in {
       extensions = with pkgs.vscode-extensions; [
           bbenoist.nix
           eamodio.gitlens
+          github.copilot
           mechatroner.rainbow-csv
           vscode-icons-team.vscode-icons
       ]
@@ -25,7 +26,12 @@ in {
           }
       ];
       userSettings = {
+          "editor.cursorSmoothCaretAnimation" = "on";
           "editor.fontFamily" = "Comic Mono";
+          "github.copilot.enable" = {
+            "quarto" = false;
+            "*" = true;
+          };
           "window.titleBarStyle" = "custom";
           "workbench.iconTheme" = "vscode-icons";
       };
