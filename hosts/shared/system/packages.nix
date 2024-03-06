@@ -11,6 +11,7 @@
     gnupg
     gparted
     intel-gpu-tools
+    jetbrains.datagrip
     mpv
     mpvScripts.mpris
     onlyoffice-bin
