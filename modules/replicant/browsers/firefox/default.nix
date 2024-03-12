@@ -53,6 +53,20 @@ in {
               definedAliases = [ "@np" ];
             };
 
+            "MyDramaList" = {
+              urls = [{
+                template = "https://mydramalist.com/search";
+                params = [{ name = "q"; value = "{searchTerms}"; }];
+              }];
+
+              icon = builtins.fetchurl {
+                sha256 = "sha256:1yv3g82hrfsg5zmj7xal5dnj7ckxmcbxlqda4c6yhr2ddyd99hcc";
+                url = "https://mydramalist.com/favicon.ico";
+              };
+              
+              definedAliases = [ "@mdl" ];
+            };
+
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
