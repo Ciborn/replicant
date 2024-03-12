@@ -21,6 +21,7 @@
     ./servers/sunshine
 
     ./shells
+    ./shells/fish
     ./shells/zsh
     
     ./tools/quarto

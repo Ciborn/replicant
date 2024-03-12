@@ -26,8 +26,8 @@
 
     editors.vscode.enable = true;
 
+    shells.fish.enable = true;
     shells.useCommonTools = true;
-    shells.zsh.enable = true;
 
     tools.quarto.enable = true;
   };
