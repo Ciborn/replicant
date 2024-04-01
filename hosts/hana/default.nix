@@ -20,8 +20,10 @@
   networking.hostName = "hana";
 
   # NVIDIA GPU-related configuration
+  nixpkgs.config.cudaSupport = true;
   programs.hyprland.enableNvidiaPatches = true;
   hardware.nvidia.modesetting.enable = true;
+  virtualisation.docker.enableNvidia = true;
 
   programs.anime-game-launcher.enable = true;
 

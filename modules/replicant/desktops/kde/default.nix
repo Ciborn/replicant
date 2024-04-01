@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       libsForQt5.kcalc
+      libsForQt5.filelight
     ];
 
     services.xserver.enable = true;

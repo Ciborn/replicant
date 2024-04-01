@@ -16,6 +16,7 @@ in {
       nano
       pciutils
       tree
+      unzip
       vim
       wget
     ];
