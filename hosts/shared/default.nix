@@ -32,9 +32,21 @@
     tools.quarto.enable = true;
   };
 
-  networking.interfaces.tap0 = {
-    ipv6.addresses = [{ address = "fca0::1"; prefixLength = 16; }];
-    virtual = true;
+  systemd.network = {
+    enable = true;
+
+    netdevs."20-tap0".netdevConfig = {
+      Kind = "tap";
+      Name = "tap0";
+    };
+
+    networks."50-tap0" = {
+      matchConfig.Name = "tap0";
+      networkConfig.ConfigureWithoutCarrier = true;
+      address = [ "fca0::1/16" ];
+    };
+
+    wait-online.enable = false;
   };
 
   programs.steam.enable = true;
