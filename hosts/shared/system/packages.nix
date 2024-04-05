@@ -16,7 +16,6 @@
     mpvScripts.mpris
     onlyoffice-bin
     pinentry
-    protonvpn-gui
     qbittorrent
     spotify
     thunderbird
