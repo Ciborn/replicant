@@ -3,8 +3,9 @@
 {
   imports = [
     # (import "${inputs.nixpkgs}/nixos/modules/virtualisation/oci-image.nix")
+    inputs.arion.nixosModules.arion
     inputs.home-manager.nixosModules.home-manager
-    ./containers
+    ./compose
   ];
 
   chiral = {
@@ -30,8 +31,14 @@
   users.users.robinb = {
     isNormalUser = true;
     description = "Robin Bourachot";
-    extraGroups = [ "docker" "wheel" ];
+    extraGroups = [ "podman" "wheel" ];
   };
+
+  users.groups.podman.gid = 1101;
+
+  environment.systemPackages = with pkgs; [
+    docker-client
+  ];
 
   virtualisation.vmVariant = {
     # create bridge to host's tap0 interface
