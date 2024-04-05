@@ -9,6 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; mkIf cfg.enable [
+      python310Packages.weasyprint
       quarto
     ];
 
