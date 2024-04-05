@@ -16,6 +16,7 @@ in {
     ];
 
     home-manager.users.${username}.programs.vscode.extensions = with pkgs.vscode-extensions; [
+      bradlc.vscode-tailwindcss
       dbaeumer.vscode-eslint
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
