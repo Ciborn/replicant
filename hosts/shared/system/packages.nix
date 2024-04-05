@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -25,5 +25,5 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = import ../../../overlays { inherit pkgs; } ++ [ inputs.nur.overlay ];
+  nixpkgs.overlays = import ../../../overlays { inherit config pkgs; } ++ [ inputs.nur.overlay ];
 }

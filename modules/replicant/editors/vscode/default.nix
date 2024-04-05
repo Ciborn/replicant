@@ -11,6 +11,7 @@ in {
     home-manager.users.${username}.programs.vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
+          arrterian.nix-env-selector
           bbenoist.nix
           eamodio.gitlens
           github.copilot
