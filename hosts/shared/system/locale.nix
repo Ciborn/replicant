@@ -24,5 +24,5 @@
 
   programs.firefox.languagePacks = [ "fr" ];
 
-  services.xserver.layout = "fr";
+  services.xserver.xkb.layout = "fr";
 }

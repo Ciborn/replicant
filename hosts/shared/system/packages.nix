@@ -12,10 +12,10 @@
     gparted
     intel-gpu-tools
     jetbrains.datagrip
-    mpv
-    mpvScripts.mpris
+    jellyfin-media-player
     onlyoffice-bin
     pinentry
+    protonmail-desktop
     qbittorrent
     spotify
     thunderbird

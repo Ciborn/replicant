@@ -21,8 +21,8 @@ in {
       {
         name = "volar";
         publisher = "Vue";
-        version = "1.8.25";
-        sha256 = "sha256-3RQ8dBy83QblARNMjy5RliVYSxEUdJA/3yyWcLK0wVQ=";
+        version = "2.0.16";
+        sha256 = "0ffn9daz1y02fb8j7js0nrrbkxrkhabgz6dl5zw871csp8bmnc25";
       }
     ];
   };

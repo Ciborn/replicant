@@ -26,6 +26,8 @@
 
     editors.vscode.enable = true;
 
+    media.mpv.enable = true;
+
     shells.fish.enable = true;
     shells.useCommonTools = true;
 
@@ -37,12 +39,8 @@
     virtual = true;
   };
 
+  programs.gnupg.agent.enable = true;
   programs.steam.enable = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "tty";
-  };
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";

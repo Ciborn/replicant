@@ -11,7 +11,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/8211b94d-b8e3-4a89-a7ad-918aec622fdf";
     fsType = "btrfs";
-    options = [ "subvol=@" "compress=zstd" ];
+    options = [ "ssd" "subvol=@" "compress=zstd" ];
   };
 
   fileSystems."/boot/efi" = {
@@ -19,10 +19,22 @@
     fsType = "vfat";
   };
 
+  fileSystems."/mnt/win11" = {
+    device = "/dev/disk/by-uuid/5C2E16B12E1683E4";
+    fsType = "ntfs";
+    options = [ "uid=1000" ];
+  };
+
   fileSystems."/mnt/ihdd" = {
-    device = "/dev/sda2";
+    device = "/dev/disk/by-uuid/01D8ABCDC07D9290";
     fsType = "ntfs";
     options = [ "rw" "uid=1000" ];
+  };
+
+  fileSystems."/mnt/nhdd" = {
+    device = "/dev/disk/by-uuid/65441f45-5acd-4b57-9a79-c38e7d1319c8";
+    fsType = "btrfs";
+    options = [ "subvol=@" "compress=zstd" ];
   };
 
   swapDevices = [{ device = "/dev/disk/by-uuid/418f6454-f5ec-4e26-8dcc-8ec558772bc7"; }];

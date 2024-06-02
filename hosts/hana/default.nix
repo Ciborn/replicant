@@ -13,6 +13,7 @@
 
   environment.systemPackages = with pkgs; [
     os-prober
+    osu-lazer-bin
     prismlauncher
     steamPackages.steamcmd
   ];
@@ -21,13 +22,12 @@
 
   # NVIDIA GPU-related configuration
   nixpkgs.config.cudaSupport = true;
-  programs.hyprland.enableNvidiaPatches = true;
   hardware.nvidia.modesetting.enable = true;
   virtualisation.docker.enableNvidia = true;
 
   programs.anime-game-launcher.enable = true;
 
-  services.xserver.displayManager = {
+  services.displayManager = {
     autoLogin.enable = true;
     autoLogin.user = "robinb";
   };

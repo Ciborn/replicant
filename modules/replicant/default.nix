@@ -18,6 +18,8 @@
 
     ./editors/vscode
 
+    ./media/mpv
+
     ./servers/sunshine
 
     ./shells
