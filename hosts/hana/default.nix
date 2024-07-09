@@ -15,7 +15,7 @@
     os-prober
     osu-lazer-bin
     prismlauncher
-    steamPackages.steamcmd
+    qmk
   ];
 
   networking.hostName = "hana";
@@ -26,11 +26,14 @@
   virtualisation.docker.enableNvidia = true;
 
   programs.anime-game-launcher.enable = true;
+  programs.virt-manager.enable = true;
 
   services.displayManager = {
     autoLogin.enable = true;
     autoLogin.user = "robinb";
   };
+
+  virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "22.11";
 }

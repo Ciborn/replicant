@@ -9,12 +9,12 @@
   ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/8211b94d-b8e3-4a89-a7ad-918aec622fdf";
+    device = "/dev/disk/by-uuid/093d3c4e-f41a-4318-932d-ad7dea43c988";
     fsType = "btrfs";
     options = [ "ssd" "subvol=@" "compress=zstd" ];
   };
 
-  fileSystems."/boot/efi" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/9C23-7ABD";
     fsType = "vfat";
   };
@@ -26,9 +26,9 @@
   };
 
   fileSystems."/mnt/ihdd" = {
-    device = "/dev/disk/by-uuid/01D8ABCDC07D9290";
-    fsType = "ntfs";
-    options = [ "rw" "uid=1000" ];
+    device = "/dev/disk/by-uuid/94b7da7b-e736-57fd-80c8-d0b7df96dffd";
+    fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   fileSystems."/mnt/nhdd" = {
@@ -49,6 +49,8 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.graphics.enable32Bit = true;
   # high-resolution display
   # hardware.video.hidpi.enable = lib.mkDefault true;
 }
+

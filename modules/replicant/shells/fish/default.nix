@@ -9,6 +9,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = [
+      pkgs.git
       (pkgs.fishPlugins.buildFishPlugin rec {
         pname = "omf-robbyrussell";
         version = "93944745b7a2ede0be548e0c8fc160d7f2cc6af7";

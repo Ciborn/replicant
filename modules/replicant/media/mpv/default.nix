@@ -10,6 +10,11 @@ in {
   config = mkIf cfg.enable {
     home-manager.users.${username}.programs.mpv = {
       enable = true;
+
+      config = {
+        vo = "gpu-next";
+      };
+
       scripts = with pkgs.mpvScripts; [ mpris ];
     };
   };

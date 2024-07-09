@@ -15,6 +15,7 @@
 
     ./development/nodejs
     ./development/python
+    ./development/vagrant
 
     ./editors/vscode
 

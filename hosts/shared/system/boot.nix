@@ -8,11 +8,11 @@
     "vm.swappiness" = 0;
   };
 
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = false;
 
   boot.loader.grub = {
     device = "nodev";
-    efiInstallAsRemovable = false;
+    efiInstallAsRemovable = true;
     efiSupport = true;
     enable = true;
   };

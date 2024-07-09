@@ -1,7 +1,8 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
+    ansible
     bitwarden
     cloudflared # TODO: should be moved to a shell.nix
     compsize
@@ -25,5 +26,5 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.overlays = import ../../../overlays { inherit config pkgs; } ++ [ inputs.nur.overlay ];
+  nixpkgs.overlays = import ../../../overlays { inherit config lib pkgs; } ++ [ inputs.nur.overlay ];
 }

@@ -8,7 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; mkIf cfg.enable [
+    environment.systemPackages = with pkgs; [
       python3
     ];
 

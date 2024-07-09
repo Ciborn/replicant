@@ -39,6 +39,15 @@
         inherit specialArgs;
       };
 
+      sera = inputs.nixpkgs.lib.nixosSystem {
+        modules = [
+          self.nixosModules.chiral
+          self.nixosModules.replicant
+          ./hosts/sera
+        ];
+        inherit specialArgs;
+      };
+
       yeoreum = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           self.nixosModules.replicant

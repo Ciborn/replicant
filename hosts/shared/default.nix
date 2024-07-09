@@ -3,7 +3,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-ssd
     ./system/boot.nix
     ./system/fonts.nix
@@ -23,6 +22,7 @@
 
     development.nodejs.enable = true;
     development.python.enable = true;
+    development.vagrant.enable = true;
 
     editors.vscode.enable = true;
 

@@ -7,7 +7,7 @@ declarative compooter goes brrrrrr
 
 | Hostname     | System          | Description                         | Name's origin             |
 | ------------ | --------------- | ----------------------------------- | ------------------------- |
-| `donghoon`   | `aarch64-linux` | "homelab" (hosted on OCI)           | *"My Mister"* series      |
+| `donghoon`   | `aarch64-linux` | "homelab" (hosted on OCI, WIP)      | *"My Mister"* series      |
 | `hana`       | `x86_64-linux`  | PC                                  | *"Demon Catchers"* series |
 | `yeoreum`    | `x86_64-linux`  | laptop                              | *"Summer Strike"* series  |
 
