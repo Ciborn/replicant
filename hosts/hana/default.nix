@@ -12,6 +12,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   environment.systemPackages = with pkgs; [
+    heroic
     os-prober
     unstable-pkgs.osu-lazer-bin
     prismlauncher
