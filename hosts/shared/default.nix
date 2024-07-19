@@ -51,6 +51,8 @@
     wait-online.enable = false;
   };
 
+  hardware.opentabletdriver.enable = true;
+
   programs.gnupg.agent.enable = true;
   programs.steam.enable = true;
 
