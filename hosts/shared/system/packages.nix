@@ -14,6 +14,7 @@
     intel-gpu-tools
     jetbrains.datagrip
     jellyfin-media-player
+    obsidian
     onlyoffice-bin
     pinentry
     protonmail-desktop
