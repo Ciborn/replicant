@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, inputs, pkgs, unstable-pkgs, ... }:
 
 {
   imports = [
@@ -13,7 +13,7 @@
 
   environment.systemPackages = with pkgs; [
     os-prober
-    osu-lazer-bin
+    unstable-pkgs.osu-lazer-bin
     prismlauncher
     qmk
   ];

@@ -12,6 +12,8 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     nur.url = "github:nix-community/nur/master";
   };
 
@@ -36,7 +38,12 @@
           self.nixosModules.replicant
           ./hosts/hana
         ];
-        inherit specialArgs;
+        specialArgs = specialArgs // {
+          unstable-pkgs = import inputs.nixpkgs-unstable {
+            config.allowUnfree = true;
+            system = "x86_64-linux";
+          };
+        };
       };
 
       sera = inputs.nixpkgs.lib.nixosSystem {
