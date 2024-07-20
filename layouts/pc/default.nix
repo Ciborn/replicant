@@ -19,7 +19,7 @@
 
     browsers.firefox.enable = true;
 
-    desktops.kde.enable = true;
+    desktops.kde.enable = lib.mkDefault true;
 
     development.nodejs.enable = true;
     development.python.enable = true;

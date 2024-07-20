@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, ... }:
+{ config, home-manager, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -12,6 +12,9 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "yeoreum";
+
+  replicant.desktops.kde.enable = false;
+  replicant.desktops.gnome.enable = true;
 
   swapDevices = [{ device = "/var/lib/swapfile"; size = 8192; }];
 
