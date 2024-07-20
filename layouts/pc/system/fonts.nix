@@ -11,6 +11,7 @@
       line-awesome
       google-fonts
       libertine
+      mona-sans
       mononoki
       nerdfonts
       noto-fonts
@@ -26,7 +27,7 @@
     fontconfig = {
       defaultFonts = {
         monospace = [ "Comic Mono Normal" ];
-        sansSerif = [ "Noto Sans" ];
+        sansSerif = [ "Lexend Deca Regular" ];
         serif = [ "Source Serif Pro" ];
       };
     };
