@@ -4,6 +4,7 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.nixos-hardware.nixosModules.common-pc-ssd
+    ../common
     ./system/boot.nix
     ./system/fonts.nix
     ./system/hardware.nix
@@ -28,9 +29,6 @@
 
     media.mpv.enable = true;
 
-    shells.fish.enable = true;
-    shells.useCommonTools = true;
-
     tools.quarto.enable = true;
   };
 
@@ -51,15 +49,12 @@
     wait-online.enable = false;
   };
 
+  home-manager.useGlobalPkgs = true;
+
   hardware.opentabletdriver.enable = true;
 
   programs.gnupg.agent.enable = true;
   programs.steam.enable = true;
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.networkmanager.enable = true;
 

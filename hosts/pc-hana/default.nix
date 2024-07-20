@@ -4,7 +4,7 @@
   imports = [
     inputs.aagl.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-    ../shared
+    ../../layouts/pc
     ./system/boot.nix
     ./system/hardware.nix
   ];

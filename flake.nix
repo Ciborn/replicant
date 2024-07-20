@@ -18,50 +18,25 @@
   };
 
   outputs = { self, ... }@inputs: let
-    specialArgs = {
-      inherit inputs;
-      username = "robinb";
+    mkHost = module: inputs.nixpkgs.lib.nixosSystem {
+      modules = [
+        self.nixosModules.replicant
+        module
+      ];
+
+      specialArgs = {
+        inherit inputs;
+        username = "robinb";
+        unstable-pkgs = import inputs.nixpkgs-unstable {
+          config.allowUnfree = true;
+          system = "x86_64-linux";
+        };
+      };
     };
   in {
     nixosConfigurations = {
-      donghoon = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          self.nixosModules.chiral
-          self.nixosModules.replicant
-          ./hosts/donghoon
-        ];
-        inherit specialArgs;
-      };
-
-      hana = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          self.nixosModules.replicant
-          ./hosts/hana
-        ];
-        specialArgs = specialArgs // {
-          unstable-pkgs = import inputs.nixpkgs-unstable {
-            config.allowUnfree = true;
-            system = "x86_64-linux";
-          };
-        };
-      };
-
-      sera = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          self.nixosModules.chiral
-          self.nixosModules.replicant
-          ./hosts/sera
-        ];
-        inherit specialArgs;
-      };
-
-      yeoreum = inputs.nixpkgs.lib.nixosSystem {
-        modules = [
-          self.nixosModules.replicant
-          ./hosts/yeoreum
-        ];
-        inherit specialArgs;
-      };
+      hana = mkHost ./hosts/pc-hana;
+      yeoreum = mkHost ./hosts/pc-yeoreum;
     };
 
     nixosModules = {
