@@ -26,6 +26,9 @@
   hardware.nvidia.modesetting.enable = true;
   virtualisation.docker.enableNvidia = true;
 
+  programs.adb.enable = true;
+  users.users.robinb.extraGroups = ["adbusers"];
+
   programs.anime-game-launcher.enable = true;
   programs.virt-manager.enable = true;
 
