@@ -8,6 +8,8 @@
     "vm.swappiness" = 0;
   };
 
+  boot.plymouth.enable = true;
+
   boot.loader.efi.canTouchEfiVariables = false;
 
   boot.loader.grub = {
