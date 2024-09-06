@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       dconf2nix
+      gnome.dconf-editor
       gnome.gnome-color-manager
       gnome.gnome-tweaks
       gnomeExtensions.dash-to-panel
@@ -26,7 +27,12 @@ in {
 
     services.displayManager.defaultSession = "gnome";
     services.xserver.desktopManager.gnome.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
     services.xserver.enable = true;
+
+    services.xserver.displayManager.gdm = {
+      enable = true;
+
+      banner = "Robin Bourachot - robin.bourachot@pm.me";
+    };
   };
 }
