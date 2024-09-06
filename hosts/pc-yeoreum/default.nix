@@ -13,8 +13,7 @@
 
   networking.hostName = "yeoreum";
 
-  replicant.desktops.kde.enable = false;
-  replicant.desktops.gnome.enable = true;
+  replicant.desktops.de = "gnome";
 
   swapDevices = [{ device = "/var/lib/swapfile"; size = 8192; }];
 

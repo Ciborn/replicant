@@ -7,6 +7,7 @@
 
     ./browsers/firefox
 
+    ./desktops
     ./desktops/eww
     ./desktops/gnome
     ./desktops/hyprland
