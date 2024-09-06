@@ -11,6 +11,10 @@
   boot.loader.grub.gfxmodeEfi = "1920x1200";
   boot.loader.efi.efiSysMountPoint = "/boot";
 
+  environment.systemPackages = with pkgs; [
+    distrobox
+  ];
+
   networking.hostName = "yeoreum";
 
   replicant.desktops.de = "gnome";
