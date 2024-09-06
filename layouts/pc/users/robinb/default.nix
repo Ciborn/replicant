@@ -5,5 +5,6 @@
     home.stateVersion = "23.05";
 
     programs.git = import ./programs/git.nix;
+    programs.sagemath.enable = true;
   };
 }
