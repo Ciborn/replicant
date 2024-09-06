@@ -28,6 +28,7 @@
     ./shells/fish
     ./shells/zsh
     
+    ./tools/ptyxis
     ./tools/quarto
   ];
 }

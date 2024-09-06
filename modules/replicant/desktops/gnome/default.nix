@@ -18,12 +18,18 @@ in {
       gradience
     ];
 
+    environment.gnome.excludePackages = with pkgs; [
+      gnome-console
+    ];
+
     # programs.firefox.nativeMessagingHosts.packages = with pkgs; [
     #   gnome-browser-connector
     # ];
 
     programs.kdeconnect.enable = true;
     programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
+  
+    replicant.tools.ptyxis.enable = true;
 
     services.displayManager.defaultSession = "gnome";
     services.xserver.desktopManager.gnome.enable = true;
