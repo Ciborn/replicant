@@ -38,8 +38,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.dconf.enable = true;
-
     home-manager.users.${username} = {
       imports = [ ./dconf.nix ];
       services.easyeffects.enable = true;

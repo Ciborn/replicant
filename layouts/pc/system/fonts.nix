@@ -11,6 +11,7 @@
       line-awesome
       google-fonts
       libertine
+      mona-sans
       mononoki
       nerdfonts
       noto-fonts

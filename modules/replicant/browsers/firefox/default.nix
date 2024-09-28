@@ -8,12 +8,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ firefox ];
-
-    programs.firefox = {
-      enable = true;
-      # nativeMessagingHosts.packages = mkIf config.replicant.desktops.kde.enable [ pkgs.plasma5Packages.plasma-browser-integration ];
-    };
+    programs.firefox.enable = true;
 
     home-manager.users.${username}.programs.firefox = {
       enable = true;

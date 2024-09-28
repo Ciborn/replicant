@@ -13,6 +13,7 @@ in {
       fastfetch
       htop
       lm_sensors
+      moreutils
       nano
       pciutils
       tree

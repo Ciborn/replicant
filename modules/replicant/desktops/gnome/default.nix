@@ -9,21 +9,36 @@ in {
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-        dconf2nix
-        gnome.gnome-color-manager
-        gnome.gnome-tweaks
-        gnomeExtensions.dash-to-panel
-        gnomeExtensions.gsconnect
-        gradience
+      dconf2nix
+      gnome.dconf-editor
+      gnome.gnome-color-manager
+      gnome.gnome-tweaks
+      gnomeExtensions.dash-to-panel
+      gnomeExtensions.gsconnect
+      gradience
     ];
 
-    home-manager.users.${username}.programs.firefox.enableGnomeExtensions = true;
+    environment.gnome.excludePackages = with pkgs; [
+      gnome-console
+    ];
+
+    # programs.firefox.nativeMessagingHosts.packages = with pkgs; [
+    #   gnome-browser-connector
+    # ];
 
     programs.kdeconnect.enable = true;
     programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
+  
+    replicant.tools.ptyxis.enable = true;
 
+    services.displayManager.defaultSession = "gnome";
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
+
+    services.xserver.displayManager.gdm = {
+      enable = true;
+
+      banner = "Robin Bourachot - robin.bourachot@pm.me";
+    };
   };
 }

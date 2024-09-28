@@ -43,6 +43,7 @@ in {
 				};
 				"window.titleBarStyle" = "custom";
 				"workbench.iconTheme" = "vscode-icons";
+  				"remote.autoForwardPortsSource" = "hybrid";
 			};
 		};
   };

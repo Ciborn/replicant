@@ -19,8 +19,6 @@
 
     browsers.firefox.enable = true;
 
-    desktops.kde.enable = true;
-
     development.nodejs.enable = true;
     development.python.enable = true;
     development.vagrant.enable = true;
@@ -53,6 +51,7 @@
 
   hardware.opentabletdriver.enable = true;
 
+  programs.dconf.enable = true;
   programs.gnupg.agent.enable = true;
   programs.steam.enable = true;
 

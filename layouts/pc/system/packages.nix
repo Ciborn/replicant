@@ -21,6 +21,7 @@
     qbittorrent
     spotify
     thunderbird
+    vesktop
     vscode
   ];
 

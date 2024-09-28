@@ -37,6 +37,8 @@
     autoLogin.user = "robinb";
   };
 
+  replicant.desktops.de = "kde";
+
   virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "22.11";
