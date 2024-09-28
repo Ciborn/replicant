@@ -8,8 +8,10 @@
   replicant.shells.fish.enable = true;
   replicant.shells.useCommonTools = true;
   
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker = {
+    daemon.settings.features.containerd-snapshotter = true;
+    enable = true;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

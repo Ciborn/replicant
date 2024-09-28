@@ -24,7 +24,7 @@
   # NVIDIA GPU-related configuration
   nixpkgs.config.cudaSupport = true;
   hardware.nvidia.modesetting.enable = true;
-  virtualisation.docker.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   programs.adb.enable = true;
   users.users.robinb.extraGroups = ["adbusers"];

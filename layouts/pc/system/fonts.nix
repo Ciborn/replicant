@@ -26,7 +26,7 @@
     fontconfig = {
       defaultFonts = {
         monospace = [ "Comic Mono Normal" ];
-        sansSerif = [ "Noto Sans" ];
+        sansSerif = [ "Ubuntu" ];
         serif = [ "Source Serif Pro" ];
       };
     };
