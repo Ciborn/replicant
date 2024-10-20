@@ -62,6 +62,19 @@ in {
               definedAliases = [ "@mdl" ];
             };
 
+            "Satisfactory Wiki" = {
+              urls = [{
+                template = "https://satisfactory.wiki.gg/wiki/Special:Search/{searchTerms}";
+              }];
+
+              icon = builtins.fetchurl {
+                sha256 = "sha256:15lcqjazf8lb1ym7mp51j9f9r2xbxs469y370c9l898zr4p0y84y";
+                url = "https://satisfactory.wiki.gg/images/4/4a/Site-favicon.ico";
+              };
+              
+              definedAliases = [ "@sf" ];
+            };
+
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
           };
         };
