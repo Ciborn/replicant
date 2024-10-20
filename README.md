@@ -1,6 +1,8 @@
 # nix
 declarative compooter goes brrrrrr
 
+up-to-date version @ https://code.cib.sh/cib/infra/replicant
+
 ## The flake
 
 ### Hosts (NixOS configurations)
