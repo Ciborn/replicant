@@ -4,6 +4,7 @@
   imports = [
     inputs.aagl.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    "${inputs.nixos-hardware}/common/cpu/intel/cpu-only.nix"
     ../../layouts/pc
     ./system/boot.nix
     ./system/hardware.nix
@@ -37,6 +38,7 @@
     autoLogin.user = "robinb";
   };
 
+  replicant.development.c-sharp.enable = true;
   replicant.desktops.de = "kde";
 
   virtualisation.libvirtd.enable = true;
