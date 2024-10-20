@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       python3
+      uv
     ];
 
     home-manager.users.${username}.programs.vscode.extensions = with pkgs.vscode-extensions; [

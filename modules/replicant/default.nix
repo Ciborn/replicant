@@ -27,6 +27,8 @@
     ./shells
     ./shells/fish
     ./shells/zsh
+
+    ./system/plymouth
     
     ./tools/ptyxis
     ./tools/quarto

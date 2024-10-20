@@ -20,6 +20,7 @@
     protonmail-desktop
     qbittorrent
     spotify
+    teams-for-linux
     thunderbird
     vesktop
     vscode

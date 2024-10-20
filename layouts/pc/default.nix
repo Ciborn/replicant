@@ -27,35 +27,22 @@
 
     media.mpv.enable = true;
 
+    system.plymouth.enable = true;
+
     tools.quarto.enable = true;
-  };
-
-  systemd.network = {
-    enable = true;
-
-    netdevs."20-tap0".netdevConfig = {
-      Kind = "tap";
-      Name = "tap0";
-    };
-
-    networks."50-tap0" = {
-      matchConfig.Name = "tap0";
-      networkConfig.ConfigureWithoutCarrier = true;
-      address = [ "fca0::1/16" ];
-    };
-
-    wait-online.enable = false;
   };
 
   home-manager.useGlobalPkgs = true;
 
-  hardware.opentabletdriver.enable = true;
-
   programs.dconf.enable = true;
   programs.gnupg.agent.enable = true;
   programs.steam.enable = true;
-
-  networking.networkmanager.enable = true;
+  programs.virt-manager.enable = true;
 
   networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.networkmanager.enable = true;
+
+  systemd.services.NetworkManager-wait-online.enable = false;
+
+  virtualisation.libvirtd.enable = true;
 }

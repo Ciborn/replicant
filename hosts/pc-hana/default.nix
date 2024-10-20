@@ -26,11 +26,12 @@
   hardware.nvidia.modesetting.enable = true;
   virtualisation.docker.enableNvidia = true;
 
+  hardware.opentabletdriver.enable = true;
+
   programs.adb.enable = true;
   users.users.robinb.extraGroups = ["adbusers"];
 
   programs.anime-game-launcher.enable = true;
-  programs.virt-manager.enable = true;
 
   services.displayManager = {
     autoLogin.enable = true;
@@ -38,8 +39,6 @@
   };
 
   replicant.desktops.de = "kde";
-
-  virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "22.11";
 }

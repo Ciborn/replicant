@@ -1,0 +1,16 @@
+for (i = 1; i < 13; i++)
+  flyingman_image[i] = Image("progress_" + i + ".png");
+flyingman_sprite = Sprite();
+
+flyingman_sprite.SetX(Window.GetWidth() / 2 - flyingman_image[1].GetWidth() / 2);
+flyingman_sprite.SetY(Window.GetHeight() / 2 - flyingman_image[1].GetHeight() / 2);
+
+progress = 0;
+
+fun refresh_callback ()
+  {
+    flyingman_sprite.SetImage(flyingman_image[Math.Int(progress / 5) % 13]);
+    progress++;
+  }
+  
+Plymouth.SetRefreshFunction (refresh_callback);

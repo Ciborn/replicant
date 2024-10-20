@@ -7,7 +7,6 @@
       comic-mono
       corefonts # Microsoft free fonts
       dejavu_fonts
-      lexend
       line-awesome
       google-fonts
       libertine
@@ -27,7 +26,7 @@
     fontconfig = {
       defaultFonts = {
         monospace = [ "Comic Mono Normal" ];
-        sansSerif = [ "Lexend Deca Regular" ];
+        sansSerif = [ "Ubuntu" ];
         serif = [ "Source Serif Pro" ];
       };
     };

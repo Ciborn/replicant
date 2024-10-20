@@ -28,10 +28,15 @@ in {
 
     programs.kdeconnect.enable = true;
     programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
+
+    programs.geary.enable = false;
   
     replicant.tools.ptyxis.enable = true;
 
     services.displayManager.defaultSession = "gnome";
+
+    services.gnome.games.enable = true;
+
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.enable = true;
 
