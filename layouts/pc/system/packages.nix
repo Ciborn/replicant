@@ -2,12 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    ansible
     bitwarden
     cloudflared # TODO: should be moved to a shell.nix
     compsize
     ddcutil
-    discord
     efibootmgr
     gnupg
     gparted
@@ -17,12 +15,11 @@
     obsidian
     onlyoffice-bin
     pinentry
-    protonmail-desktop
     qbittorrent
     spotify
     thunderbird
+    ungoogled-chromium
     vesktop
-    vscode
   ];
 
   # Allow unfree packages
