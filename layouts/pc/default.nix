@@ -45,4 +45,8 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   virtualisation.libvirtd.enable = true;
+
+  time.timeZone = "Europe/Paris";
+
+  services.ntp.enable = true;
 }

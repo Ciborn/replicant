@@ -4,6 +4,7 @@
   imports = [
     inputs.aagl.nixosModules.default
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+    "${inputs.nixos-hardware}/common/cpu/intel/cpu-only.nix"
     ../../layouts/pc
     ./system/boot.nix
     ./system/hardware.nix
@@ -24,7 +25,7 @@
   # NVIDIA GPU-related configuration
   nixpkgs.config.cudaSupport = true;
   hardware.nvidia.modesetting.enable = true;
-  virtualisation.docker.enableNvidia = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   hardware.opentabletdriver.enable = true;
 
@@ -38,6 +39,7 @@
     autoLogin.user = "robinb";
   };
 
+  replicant.development.c-sharp.enable = true;
   replicant.desktops.de = "kde";
 
   system.stateVersion = "22.11";

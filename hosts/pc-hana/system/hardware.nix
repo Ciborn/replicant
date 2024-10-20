@@ -34,7 +34,7 @@
   fileSystems."/mnt/nhdd" = {
     device = "/dev/disk/by-uuid/65441f45-5acd-4b57-9a79-c38e7d1319c8";
     fsType = "btrfs";
-    options = [ "subvol=@" "compress=zstd" ];
+    options = [ "subvol=@" "compress=zstd" "nofail" ];
   };
 
   swapDevices = [{ device = "/dev/disk/by-uuid/418f6454-f5ec-4e26-8dcc-8ec558772bc7"; }];

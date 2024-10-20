@@ -14,6 +14,7 @@
     ./desktops/kde
     ./desktops/rofi
 
+    ./development/c-sharp
     ./development/nodejs
     ./development/python
     ./development/vagrant
